@@ -290,3 +290,27 @@ go run RoutingPublish.go
 
 ### Topic
 
+Topic exchange can't have an arbitrary `routing_key`, it must be a list of words, delimited by dots. Like "`stock.usd.nyse`", up to the limit of 255 bytes.
+
+```mermaid
+flowchart LR
+P --> X
+X --> |*.key_part.*| Q1 --> C1
+X --> |*.*.key_part| Q2 --> C2
+X --> |key_part.#| Q2
+```
+
+- `*` can substitute for exactly **one** word.
+- `#` can substitute for zero or more words.
+
+```go
+//need ExchangeName and key
+//publish kind:topic
+ExchangeDeclare
+```
+
+```go
+go run TopicConsume "..." "..."
+go run TopicPublish 
+```
+
