@@ -2,8 +2,9 @@
 
 Go with RabbitMQ
 
-- [ ] Simple mod
-- [ ] Work queue
-- [ ] Publish/Subscribe
-- [ ] Routing   
-- [ ] Topics
+- [x] Simple mod
+- [x] Work queue
+- [x] Publish/Subscribe
+- [x] Routing   
+- [x] Topics
+- [ ] RPC
